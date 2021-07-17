@@ -1,0 +1,26 @@
+.card{
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 5%;
+    padding:0;
+    line-height: 1rem;
+    border: 1px solid gainsboro;
+    box-shadow: 10px ;
+    box-sizing: border-box;
+    letter-spacing: normal;
+    line-height: 0.8rem;
+    
+}
+.labl{
+    color:black;
+ 
+    font-size:x-large;
+    font-weight: bold;
+    line-height: 0.5rem;
+}
+span{
+    font-size: large;
+    font-weight:bold;
+}

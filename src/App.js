@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from 'react';
+import "./App.css";
+import Input from "./Components/Search";
+import axios from "axios";
+import Result from "./Components/Result";
 
-function App() {
+
+
+const App = () => {
+  const [input, setInput] = useState("") ;
+  const[temp,settemp] = useState("");
+  const [description, setdescription] =useState("");
+  const [icon,seticon]=useState("");
+  
+  const findweather=async()=> {
+  const res= await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=d7fe7181a9a277132f406381c3c0980f`);
+  const temp=await (res.data.main.temp-272.15 ).toFixed(0)+"℃";
+  const description=await res.data.weather[0].description;
+  const icon1=await res.data.weather[0].icon;
+  const cloud=`https://openweathermap.org/img/wn/${icon1}.png`;
+  
+  settemp(temp);
+  setdescription(description);
+  seticon(cloud);
+  setInput("");
+
+  }
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+        <h1 className="title">Weather  App</h1>
+     {temp ===""?
+     (<Input input={input} setInput={setInput} findweather={findweather}/>):
+      (<Result input={input} temp={temp} description={description} icon={icon} settemp={settemp} />)}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
