@@ -2,7 +2,7 @@ import React from 'react'
 import {Button,Card,Typography,CardContent} from "@material-ui/core";
 import styles from "./Result.module.css"
 
-const Result = ({input,temp,description,icon,settemp}) => {
+const Result = ({city,temp,description,icon,settemp}) => {
 
     return (
         <>  
@@ -11,7 +11,7 @@ const Result = ({input,temp,description,icon,settemp}) => {
                 <h1 color="textSecondary" className={styles.title}>The Weather is currently Haze</h1>
               
              <Typography  color="textSecondary"component="p" varient="p" >
-        Temperature {input}is:{temp}
+             {city} Temperature is:{temp}
         </Typography>
         <Typography  color="textSecondary" component="p" varient="p">
       {description}

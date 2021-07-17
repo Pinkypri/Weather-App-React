@@ -14,6 +14,8 @@ const Search = ({ input, setInput,findweather }) => {
  findweather()
   }
 
+  console.log(input);
+
   return (
  
             <Card className={styles.card}item xs={12}>
